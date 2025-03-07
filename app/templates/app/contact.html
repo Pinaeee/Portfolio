@@ -1,0 +1,493 @@
+{% extends "app/layout.html" %} {% block content %}
+
+<style>
+  :root {
+    --primary-color: #2d3748;
+    --secondary-color: #4299e1;
+    --accent-color: #48bb78;
+    --background-color: #f7fafc;
+    --text-color: #1a202c;
+    --card-background: #ffffff;
+    --gradient: linear-gradient(135deg, #2d3748, #4299e1);
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Roboto", sans-serif;
+  }
+
+  .section {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .contact-form-container,
+  .contact-info {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(44, 66, 81, 0.2);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .contact-form-container:hover,
+  .contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(52, 152, 219, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .submit-btn {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    float: right;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+
+  .contact-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-form-header h3 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+
+  .contact-form-header p {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .contact-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(52, 152, 219, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    transition: all 0.3s ease;
+  }
+
+  .contact-card:hover::before {
+    width: 100%;
+    opacity: 0.1;
+  }
+
+  .contact-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .contact-icon {
+    font-size: 24px;
+    color: #3498db;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card:hover .contact-icon {
+    transform: scale(1.1);
+    color: #2c3e50;
+  }
+
+  .contact-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  .contact-card-content {
+    padding-left: 39px; /* Match icon width + margin */
+  }
+
+  .contact-card a {
+    color: #3498db;
+    text-decoration: none;
+    display: block;
+    margin: 8px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 25px;
+  }
+
+  .contact-card a:hover {
+    color: #2c3e50;
+    transform: translateX(5px);
+  }
+
+  .contact-card a::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card a:hover::before {
+    opacity: 1;
+  }
+
+  @media (max-width: 1200px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 20px;
+    }
+  }
+
+  /* Add new title styles to match other pages */
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 2rem 0;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .page-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    border-radius: 2px;
+  }
+
+  /* Add particles background */
+  .particles-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Social media buttons */
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .social-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn:hover {
+    transform: translateY(-5px) rotate(360deg);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+
+  /* Loading animation for submit button */
+  .submit-btn.loading {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .submit-btn.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @keyframes spin {
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+</style>
+
+<!-- Add particles background div -->
+<div id="particles-js" class="particles-background"></div>
+
+<div class="container">
+  <h2 class="page-title">Get In Touch</h2>
+
+  <div class="contact-container">
+    <div class="contact-form-container">
+      <div class="contact-form-header">
+        <h3>Send Me a Message</h3>
+        <p>I'll get back to you as soon as possible</p>
+      </div>
+      <form id="contactForm" onsubmit="return handleSubmit(event)">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <div class="contact-card-header">
+          <i class="fas fa-envelope contact-icon"></i>
+          <h3>Email</h3>
+        </div>
+        <div class="contact-card-content">
+          <a href="mailto:nurafrinaee.edu@gmail.com">nurafrinaee.edu@gmail.com</a>
+          <a href="mailto:1231303327@student.mmu.edu.my"
+            >1231303327@student.mmu.edu.my</a
+          >
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-header">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <h3>Location</h3>
+        </div>
+        <div class="contact-card-content">
+          <p>Cyberjaya, Malaysia</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-header">
+          <i class="fas fa-share-alt contact-icon"></i>
+          <h3>Social Media</h3>
+        </div>
+        <div class="contact-card-content">
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/nurafrina-batrisyia-7097992b6/"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/Pinaeee"
+              target="_blank"
+              class="social-btn"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  // Initialize particles.js
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: "#3498db" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5, random: false },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#3498db",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: false,
+        straight: false,
+        out_mode: "out",
+        bounce: false,
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" },
+        resize: true,
+      },
+    },
+    retina_detect: true,
+  });
+
+  // Add typing effect to title
+  document.addEventListener("DOMContentLoaded", function () {
+    const title = document.querySelector(".page-title");
+    const text = title.textContent;
+    title.textContent = "";
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        title.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+
+    setTimeout(typeWriter, 500);
+  });
+
+  // Enhanced form submission handling
+  function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const submitBtn = form.querySelector(".submit-btn");
+
+    // Add loading state
+    submitBtn.classList.add("loading");
+    submitBtn.textContent = "Sending...";
+
+    // Simulate form submission delay
+    setTimeout(() => {
+      submitBtn.classList.remove("loading");
+      submitBtn.textContent = "Send Message";
+      alert("Message sent successfully!");
+      form.reset();
+    }, 1500);
+
+    return false;
+  }
+
+  // Enhanced input animations
+  document
+    .querySelectorAll(".form-group input, .form-group textarea")
+    .forEach((input) => {
+      const formGroup = input.parentElement;
+
+      input.addEventListener("focus", () => {
+        formGroup.classList.add("focused");
+        input.style.transform = "translateY(-2px)";
+      });
+
+      input.addEventListener("blur", () => {
+        formGroup.classList.remove("focused");
+        input.style.transform = "translateY(0)";
+      });
+    });
+</script>
+
+{% endblock %}
