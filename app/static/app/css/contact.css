@@ -261,26 +261,46 @@ body {
 /* Social media buttons */
 .social-links {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     margin-top: 15px;
 }
 
 .social-btn {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
-    color: white;
-    font-size: 20px;
+    font-size: 24px;
+    color: #2c3e50;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    padding: 5px;
 }
 
 .social-btn:hover {
-    transform: translateY(-5px) rotate(360deg);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    color: #a8d1ec;
+    transform: translateY(-3px);
+    -webkit-transform:;
+    -moz-transform:;
+    -ms-transform:;
+    -o-transform:;
+}
+
+.social-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #3498db;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* Loading animation for submit button */
@@ -306,6 +326,23 @@ body {
 @keyframes spin {
     to {
         transform: translateY(-50%) rotate(360deg);
-    }
+        -webkit-transform: translateY(-50%) rotate(360deg);
+        -moz-transform: translateY(-50%) rotate(360deg);
+        -ms-transform: translateY(-50%) rotate(360deg);
+        -o-transform: translateY(-50%) rotate(360deg);
+}
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

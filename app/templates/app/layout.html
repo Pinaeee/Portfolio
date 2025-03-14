@@ -38,11 +38,11 @@
       </button>
 
       <ul class="navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'skills' %}">Skills</a></li>
-        <li><a href="{% url 'achievements' %}">Achievements</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="{% url 'about' %}" {% if request.path == '/about/' %}class="active"{% endif %}>About</a></li>
+        <li><a href="{% url 'skills' %}" {% if request.path == '/skills/' %}class="active"{% endif %}>Skills</a></li>
+        <li><a href="{% url 'achievements' %}" {% if request.path == '/achievements/' %}class="active"{% endif %}>Achievements</a></li>
+        <li><a href="{% url 'contact' %}" {% if request.path == '/contact/' %}class="active"{% endif %}>Contact</a></li>
       </ul>
     </nav>
 
@@ -57,10 +57,12 @@
       </div>
     </footer>
 
-    <script src="{% static 'app/scripts/jquery-3.6.0.min.js' %}" defer></script>
+    <script src="{% static 'app/scripts/jquery-1.10.2.min.js' %}" defer></script>
     <script src="{% static 'app/scripts/bootstrap.min.js' %}" defer></script>
     <script src="{% static 'app/scripts/script.js' %}" defer></script>
     <script src="{% static 'app/scripts/layout.js' %}" defer></script>
+    <script src="{% static 'app/scripts/main.js' %}"></script>
+
     {% block scripts %}{% endblock %}
 
   </body>

@@ -1,11 +1,11 @@
 :root {
-    --primary-color: #2d3748;
-    --secondary-color: #4299e1;
-    --accent-color: #48bb78;
-    --background-color: #f7fafc;
-    --text-color: #1a202c;
-    --card-background: #ffffff;
-    --gradient: linear-gradient(135deg, #2d3748, #4299e1);
+    --primary-color: #1a365d;    /* Deeper blue */
+    --secondary-color: #63b3ed;  /* Softer blue */
+    --accent-color: #68d391;     /* Softer green */
+    --background-color: #f8fafc; /* Slightly warmer white */
+    --text-color: #2d3748;       /* Softer dark */
+    --card-background: #ffffff;  
+    --gradient: linear-gradient(135deg, #1a365d, #63b3ed);
 }
 
 body {
@@ -29,7 +29,7 @@ body {
     background: linear-gradient(45deg, #2c3e50, #3498db);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: 2rem 0;
+    margin: 1rem 0;
     text-align: center;
     position: relative;
     padding-bottom: 10px;
@@ -54,4 +54,18 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
