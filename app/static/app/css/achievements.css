@@ -31,7 +31,7 @@
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: linear-gradient(45deg, #1a365d, #4299e1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin:  0;
@@ -48,7 +48,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: linear-gradient(45deg, #1a365d, #4299e1);
     border-radius: 2px;
 }
 
@@ -61,11 +61,11 @@
 
 .section-title {
     font-size: 2rem;
-    color: #2c3e50;
+    color: #1a365d;
     margin-bottom: 1.5rem;
     text-align: center;
     position: relative;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: linear-gradient(45deg, #1a365d, #4299e1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -83,7 +83,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid rgba(52, 152, 219, 0.1);
+    border: 1px solid rgba(66, 153, 225, 0.1);
     position: relative;
     max-width: 400px;
     margin: 0 auto;
@@ -115,7 +115,7 @@
 
 .badge-wrapper {
     height: 150px;
-    background: rgba(52, 152, 219, 0.05);
+    background: rgba(66, 153, 225, 0.05);
 }
 
 .badge-image {
@@ -127,7 +127,7 @@
 }
 
 .card-content h3 {
-    color: #2c3e50;
+    color: #1a365d;
     margin-bottom: 0.5rem;
     font-size: 1.4rem;
 }
@@ -143,7 +143,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(45deg, #2c3e50, #3498db);
+    background: linear-gradient(45deg, #1a365d, #4299e1);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -154,7 +154,7 @@
 
 .link-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
 }
 
 @keyframes fadeInUp {

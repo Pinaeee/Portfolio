@@ -30,20 +30,48 @@
 
     <nav class="navbar">
       <div class="navbar-left">
-        <span class="decorative-name">Nurafrina Batrisyia</span>
+        <a href="/" class="decorative-name">Nurafrina Batrisyia</a>
+
+        <!-- Keep only the dropdown navigation -->
+        <div class="nav-dropdown">
+          <button class="dropdown-button">
+            <i class="fas fa-compass"></i> Discover
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a
+              href="/"
+              class="dropdown-link {% if request.path == '/' %}active{% endif %}"
+            >
+              <i class="fas fa-home"></i> Home
+            </a>
+            <a
+              href="{% url 'about' %}"
+              class="dropdown-link {% if request.path == '/about/' %}active{% endif %}"
+            >
+              <i class="fas fa-user"></i> About
+            </a>
+            <a
+              href="{% url 'skills' %}"
+              class="dropdown-link {% if request.path == '/skills/' %}active{% endif %}"
+            >
+              <i class="fas fa-code"></i> Skills
+            </a>
+            <a
+              href="{% url 'achievements' %}"
+              class="dropdown-link {% if request.path == '/achievements/' %}active{% endif %}"
+            >
+              <i class="fas fa-trophy"></i> Achievements
+            </a>
+            <a
+              href="{% url 'contact' %}"
+              class="dropdown-link {% if request.path == '/contact/' %}active{% endif %}"
+            >
+              <i class="fas fa-envelope"></i> Contact
+            </a>
+          </div>
+        </div>
       </div>
-
-      <button class="navbar-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <ul class="navbar-nav">
-        <li><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Home</a></li>
-        <li><a href="{% url 'about' %}" {% if request.path == '/about/' %}class="active"{% endif %}>About</a></li>
-        <li><a href="{% url 'skills' %}" {% if request.path == '/skills/' %}class="active"{% endif %}>Skills</a></li>
-        <li><a href="{% url 'achievements' %}" {% if request.path == '/achievements/' %}class="active"{% endif %}>Achievements</a></li>
-        <li><a href="{% url 'contact' %}" {% if request.path == '/contact/' %}class="active"{% endif %}>Contact</a></li>
-      </ul>
     </nav>
 
     <div class="container body-content">{% block content %}{% endblock %}</div>
@@ -57,13 +85,15 @@
       </div>
     </footer>
 
-    <script src="{% static 'app/scripts/jquery-1.10.2.min.js' %}" defer></script>
+    <script
+      src="{% static 'app/scripts/jquery-1.10.2.min.js' %}"
+      defer
+    ></script>
     <script src="{% static 'app/scripts/bootstrap.min.js' %}" defer></script>
     <script src="{% static 'app/scripts/script.js' %}" defer></script>
     <script src="{% static 'app/scripts/layout.js' %}" defer></script>
     <script src="{% static 'app/scripts/main.js' %}"></script>
 
     {% block scripts %}{% endblock %}
-
   </body>
 </html>

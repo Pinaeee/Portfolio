@@ -1,16 +1,15 @@
-
-  // Initialize particles.js
+// Initialize particles.js
   particlesJS("particles-js", {
     particles: {
       number: { value: 80, density: { enable: true, value_area: 800 } },
-      color: { value: "#3498db" },
+      color: { value: "#4299e1" },
       shape: { type: "circle" },
       opacity: { value: 0.5, random: false },
       size: { value: 3, random: true },
       line_linked: {
         enable: true,
         distance: 150,
-        color: "#3498db",
+        color: "#4299e1",
         opacity: 0.4,
         width: 1,
       },
