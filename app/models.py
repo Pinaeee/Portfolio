@@ -1,5 +1,7 @@
 from django.db import models
 
+# this is models
+
 class Skill(models.Model):
     SKILL_TYPES = [
         ('LANG', 'Programming Languages'),
