@@ -87,6 +87,7 @@ function initNavigation() {
   // Dropdown functionality
   const navDropdown = document.querySelector('.nav-dropdown');
   const dropdownButton = document.querySelector('.dropdown-button');
+  const dropdownLinks = document.querySelectorAll('.dropdown-link');
   
   if (dropdownButton) {
     dropdownButton.addEventListener('click', function(e) {
@@ -94,6 +95,13 @@ function initNavigation() {
       navDropdown.classList.toggle('active');
     });
   }
+
+  // Close dropdown when a link is clicked
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navDropdown.classList.remove('active');
+    });
+  });
   
   // Close dropdown when clicking outside
   document.addEventListener('click', function(e) {

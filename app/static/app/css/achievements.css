@@ -31,7 +31,7 @@
     font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
-    background: linear-gradient(45deg, #1a365d, #4299e1);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin:  0;
@@ -48,7 +48,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background: linear-gradient(45deg, #1a365d, #4299e1);
+    background: var(--gradient);
     border-radius: 2px;
 }
 
@@ -61,11 +61,11 @@
 
 .section-title {
     font-size: 2rem;
-    color: #1a365d;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     text-align: center;
     position: relative;
-    background: linear-gradient(45deg, #1a365d, #4299e1);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -75,6 +75,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     padding: 1rem;
+    grid-auto-rows: 1fr;
 }
 
 .achievement-card {
@@ -88,6 +89,8 @@
     max-width: 400px;
     margin: 0 auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .achievement-card:hover {
@@ -124,10 +127,13 @@
 
 .card-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-content h3 {
-    color: #1a365d;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-size: 1.4rem;
 }
@@ -143,13 +149,14 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(45deg, #1a365d, #4299e1);
+    background: var(--gradient);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 500;
+    margin-top: auto;
 }
 
 .link-btn:hover {
