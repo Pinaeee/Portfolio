@@ -129,6 +129,14 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
 }
 
 .contact-card::before {
@@ -140,6 +148,10 @@ body {
     height: 100%;
     background: var(--gradient);
     transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
 
 .contact-card:hover::before {
@@ -158,11 +170,19 @@ body {
     color: #4299e1;
     margin-right: 15px;
     transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
 
 .contact-card:hover .contact-icon {
     transform: scale(1.1);
     color: var(--primary-color);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
 }
 
 .contact-card h3 {
@@ -185,11 +205,19 @@ body {
     transition: all 0.3s ease;
     position: relative;
     padding-left: 25px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
 }
 
 .contact-card a:hover {
     color: var(--primary-color);
     transform: translateX(5px);
+    -webkit-transform: translateX(5px);
+    -moz-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    -o-transform: translateX(5px);
 }
 
 .contact-card a::before {
@@ -343,6 +371,6 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent */
+    background-color: rgba(62, 191, 230, 0.8); /* Slightly transparent */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
